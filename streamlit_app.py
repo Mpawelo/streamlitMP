@@ -16,7 +16,6 @@ Ta aplikacja służy do przetwarzania języka.
 
 st.success('Interfejs załadowany pomyślnie!')
 
-st.header('Przetwarzanie języka naturalnego/Tłumacz')
 
 option = st.selectbox(
     "Wybierz opcję:",
@@ -27,6 +26,7 @@ option = st.selectbox(
 )
 
 if option == "Wydźwięk emocjonalny tekstu":
+    st.header('Przetwarzanie języka naturalnego')
     text = st.text_area(label="Wpisz tekst po angielsku")
     if st.button("Analizuj"):
         if text:
@@ -40,6 +40,7 @@ if option == "Wydźwięk emocjonalny tekstu":
             st.error("Proszę wpisać tekst do analizy!")
 
 elif option == "Tłumaczenie ENG -> GER":
+    st.header('Tłumacz')
     text = st.text_area(label="Wpisz tekst po angielsku do przetłumaczenia")
     if st.button("Tłumacz"):
         if text:
