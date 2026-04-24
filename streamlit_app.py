@@ -5,7 +5,7 @@ from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 
 st.set_page_config(page_title="Translator MP", page_icon="🌍")
 st.title('Translator MP')
-st.image("https://pja.edu.pl/wp-content/uploads/2024/07/PJATK_Warszawa_Budynek_A_4-1.jpg", width=150)
+st.image("https://pja.edu.pl/wp-content/uploads/2024/07/PJATK_Warszawa_Budynek_A_4-1.jpg", width=750)
 
 st.markdown("""
 ### Instrukcja obsługi
