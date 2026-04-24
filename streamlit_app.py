@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import time
-from transformers import pipeline
+from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 
 st.set_page_config(page_title="Translator MP", page_icon="🌍")
 st.title('Translator MP')
@@ -44,11 +44,15 @@ elif option == "Tłumaczenie ENG -> GER":
         if text:
             with st.spinner("Trwa tłumaczenie"):
                 try:
-                    translator = pipeline("translation", model="Helsinki-NLP/opus-mt-en-de")
+                    tokenizer = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-en-de")
+                    model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-en-de")
                     
-                    answer = translator(text)
+                    inputs = tokenizer(text, return_tensors="pt")
+                    outputs = model.generate(**inputs)
+                    translated_text = tokenizer.batch_decode(outputs, skip_special_tokens=True)[0]
+                    
                     st.success("Tłumaczenie zakończone sukcesem!")
-                    st.write("**Tłumaczenie:**", answer[0]['translation_text'])
+                    st.write("**Tłumaczenie:**", translated_text)
                 except Exception as e:
                     st.error(f"Wystąpił błąd: {e}")
         else:
