@@ -44,7 +44,8 @@ elif option == "Tłumaczenie ENG -> GER":
         if text:
             with st.spinner("Trwa tłumaczenie"):
                 try:
-                    translator = pipeline("translation_en_to_de")
+                    translator = pipeline("translation", model="Helsinki-NLP/opus-mt-en-de")
+                    
                     answer = translator(text)
                     st.success("Tłumaczenie zakończone sukcesem!")
                     st.write("**Tłumaczenie:**", answer[0]['translation_text'])
