@@ -34,6 +34,7 @@ if option == "Wydźwięk emocjonalny tekstu":
                 classifier = pipeline("sentiment-analysis")
                 answer = classifier(text)
                 st.success("Zakończono analizę!")
+                st.balloons()
                 st.write(answer)
         else:
             st.error("Proszę wpisać tekst do analizy!")
