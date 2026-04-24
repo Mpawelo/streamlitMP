@@ -5,7 +5,7 @@ from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 
 st.set_page_config(page_title="Translator MP", page_icon="🌍")
 st.title('Translator MP')
-st.image("https://huggingface.co/front/assets/huggingface_logo-noborder.svg", width=150)
+st.image("https://pja.edu.pl/wp-content/uploads/2024/07/PJATK_Warszawa_Budynek_A_4-1.jpg", width=150)
 
 st.markdown("""
 ### Instrukcja obsługi
@@ -16,7 +16,7 @@ Ta aplikacja służy do przetwarzania języka.
 
 st.success('Interfejs załadowany pomyślnie!')
 
-st.header('Przetwarzanie języka naturalnego')
+st.header('Przetwarzanie języka naturalnego/Tłumacz')
 
 option = st.selectbox(
     "Wybierz opcję:",
@@ -54,6 +54,7 @@ elif option == "Tłumaczenie ENG -> GER":
                     
                     st.success("Tłumaczenie zakończone sukcesem!")
                     st.write("**Tłumaczenie:**", translated_text)
+                    st.balloons()
                 except Exception as e:
                     st.error(f"Wystąpił błąd: {e}")
         else:
