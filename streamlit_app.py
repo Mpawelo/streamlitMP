@@ -60,6 +60,6 @@ elif option == "Tłumaczenie ENG -> GER":
         else:
             st.warning("Musisz wprowadzić tekst")
 
-st.image("https://www.eecs.mit.edu/wp-content/uploads/2021/06/compscihero-750x399.jpg", width=300)
+st.image("https://www.eecs.mit.edu/wp-content/uploads/2021/06/compscihero-750x399.jpg", width=700)
 st.markdown("---")
 st.write("Numer indeksu: s25402")
